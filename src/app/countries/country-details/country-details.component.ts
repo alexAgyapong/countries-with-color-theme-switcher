@@ -33,7 +33,9 @@ export class CountryDetailsComponent implements OnInit {
   }
 
   getBorderCountries(borders: string[]) {
-    this.countryService.getBorderCountry(borders).subscribe(res => this.borderCountries = res);
+    if (borders && borders.length) {
+      this.countryService.getBorderCountry(borders).subscribe(res => this.borderCountries = res);
+    }
   }
 
   goBack() {

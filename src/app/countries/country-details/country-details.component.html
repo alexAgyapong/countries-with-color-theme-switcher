@@ -50,7 +50,7 @@
               class="btn btn-outline-success">{{border?.name}}</a>
           </dd>
         </dl> -->
-        <div class="d-flex flex-column justify-content-center">
+        <div *ngIf="borderCountries && borderCountries.length" class="d-flex flex-column justify-content-center">
           <strong>Border Countries:</strong>
           <div *ngFor="let border of borderCountries">
             <a [routerLink]="['/detail', border?.code]" role="button"
