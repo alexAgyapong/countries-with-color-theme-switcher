@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../shared/country.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-country-details',
@@ -15,7 +16,7 @@ export class CountryDetailsComponent implements OnInit {
   borderCountries: BorderCountry[] = [];
   country: Country;
 
-  constructor(private countryService: CountryService, private route: ActivatedRoute) { }
+  constructor(private countryService: CountryService, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -35,4 +36,7 @@ export class CountryDetailsComponent implements OnInit {
     this.countryService.getBorderCountry(borders).subscribe(res => this.borderCountries = res);
   }
 
+  goBack() {
+    this.location.back();
+  }
 }
