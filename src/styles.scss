@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/partials/variables";
+@import "./styles/partials/card";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.wrapper{
+ background-color: $very-light-gray;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.img-container {
+  object-fit: cover;
+  img {
+    // max-width: 200px;
+    // width: 100%;
+    // border-radius: .5rem ;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+  }
+}
+
+dl
+{
+  display: flex;
+  margin-bottom: 0;
+
+  dt{
+    margin-right: .5rem;
+  }
+
+  dt::after {
+    content: ": ";
+  }
+}
