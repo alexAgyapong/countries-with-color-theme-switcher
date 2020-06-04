@@ -48,4 +48,11 @@ export class CountryService {
           );
         }), tap(data => console.log('border country names details', data)));
   }
+
+  getCountryByRegion(region: string): Observable<Country[]> {
+    const url = `${this.baseUrl}/region/${region}`;
+    return this.http.get<any>(url);
+  }
+
 }
+

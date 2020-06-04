@@ -1,17 +1,17 @@
 export enum CategoriesEnum {
-  Africa,
-  America,
-  Asia,
-  Europe,
-  Oceana
+  Africa = 'Africa',
+  Americas = 'Americas',
+  Asia = 'Asia',
+  Europe = 'Europe',
+  Oceania = 'Oceania'
 }
 
 export const Categories = new Map([
   [1, 'Africa'],
-  [2, 'America'],
+  [2, 'Americas'],
   [3, 'Asia'],
   [4, 'Europe'],
-  [5, 'Oceana']
+  [5, 'Oceania']
   // [CategoriesEnum.America],
   // [CategoriesEnum.Asia],
   // [CategoriesEnum.Europe],

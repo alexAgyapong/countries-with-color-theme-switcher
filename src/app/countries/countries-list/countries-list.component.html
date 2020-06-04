@@ -10,7 +10,7 @@
       <div class="mt-3">
         <select class="custom-select custom-select-md" formControlName="category">
           <option value="0" selected>Filter by region</option>
-          <option *ngFor="let item of categories|keyvalue" [value]="item.key">{{item.value}}</option>
+          <option *ngFor="let item of keys(categories)" [value]="item">{{item}}</option>
         </select>
       </div>
     </form>

@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { CountryService } from './../shared/country.service';
-import { Categories } from './../shared/category';
-import { CategoriesEnum } from '../shared/category';
+import { Categories, CategoriesEnum } from './../shared/category';
 import { Country } from '../shared/country';
 import { StorageMap } from '@ngx-pwa/local-storage';
 
@@ -15,8 +14,9 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 })
 export class CountriesListComponent implements OnInit {
   countryFinderForm: FormGroup;
-  categories = Categories;
+  categories = CategoriesEnum;
   countries$ = new Observable<Country[]>();
+  keys = Object.keys;
 
   constructor(private fb: FormBuilder, private countryService: CountryService, private storage: StorageMap) { }
 
@@ -32,10 +32,24 @@ export class CountriesListComponent implements OnInit {
         console.log('countries', res);
         this.countries$ = of(res);
       } else {
-        this.countries$ = this.countryService.getCountries();
+        this.getAllCountries();
       }
     });
 
+    this.countryFinderForm.valueChanges.subscribe(data => {
+      if (data && data.category) {
+        console.log('data', data.category);
+        data.category === '0' ? this.getAllCountries() : this.filterCountryByRegion(data.category);
+      }
+    });
+  }
+
+  private getAllCountries() {
+    this.countries$ = this.countryService.getCountries();
+  }
+
+  filterCountryByRegion(region: string) {
+    this.countries$ = this.countryService.getCountryByRegion(region);
   }
 
 }
