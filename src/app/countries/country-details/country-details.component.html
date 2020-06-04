@@ -1,6 +1,6 @@
-<main class="mt-3">
-  <div *ngIf="country$|async as country">
-    <div class="d-flex flex-column card-grid m-3">
+<main class="mt-3" >
+  <div *ngIf="country">
+    <div class="d-flex flex-column card-grid bg-gray m-3">
       <div class="img-container"><img [src]="country?.flag" alt="" class="img-fluid"></div>
       <div class="p-3 d-flex flex-column">
         <h3 class="py-1 mt-3">{{country?.name}}</h3>
@@ -39,6 +39,19 @@
           <dt>Languages</dt>
           <dd>{{country?.languages[0]?.name}}</dd>
         </dl>
+        <!-- <dl class="d-flex flex-column">
+          <dt>Border Countries</dt>
+          <dd *ngFor="let border of borderCountries">
+            <a [routerLink]="['/detail', border?.code]" routerLinkActive="router-link-active"
+              class="btn btn-outline-success">{{border?.name}}</a>
+          </dd>
+        </dl> -->
+        <div class="d-flex flex-column justify-content-center">
+          <strong>Border Countries:</strong>
+          <div *ngFor="let border of borderCountries">
+            <a [routerLink]="['/detail', border?.code]" role="button" class="btn btn-white p-2 my-2" >{{border?.name}}</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

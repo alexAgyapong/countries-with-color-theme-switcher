@@ -1,5 +1,7 @@
 @import "./styles/partials/variables";
 @import "./styles/partials/card";
+@import "./styles/partials/button";
+@import "./styles/partials/utilities";
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
@@ -40,3 +42,4 @@ dl
     content: ": ";
   }
 }
+

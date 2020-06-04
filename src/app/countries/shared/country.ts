@@ -54,3 +54,8 @@ export interface Country {
   regionalBlocs: RegionalBloc[];
   cioc: string;
 }
+
+export interface BorderCountry{
+  name: string;
+  code: string;
+}
