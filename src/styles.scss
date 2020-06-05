@@ -1,6 +1,7 @@
 @import "./styles/partials/variables";
 @import "./styles/partials/card";
 @import "./styles/partials/button";
+@import "./styles/partials/form";
 @import "./styles/partials/utilities";
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
@@ -11,7 +12,10 @@ body {
 
 .wrapper {
   background-color: $very-light-gray;
+  // border-radius: 10px;
+  // box-shadow: inset 5px 5px 12px 0 #aaa, inset -8px -8px 12px 0 #eee;
 }
+
 .search-input {
   position: relative;
 }
@@ -25,7 +29,7 @@ body {
 }
 
 #searchTerm {
-  padding: .8rem 3rem;
+  padding: 0.8rem 3rem;
 }
 
 a,
@@ -37,9 +41,6 @@ a:hover {
 .img-container {
   object-fit: cover;
   img {
-    // max-width: 200px;
-    // width: 100%;
-    // border-radius: .5rem ;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
   }
