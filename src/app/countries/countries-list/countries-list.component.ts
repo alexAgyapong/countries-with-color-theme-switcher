@@ -37,19 +37,37 @@ export class CountriesListComponent implements OnInit {
     });
 
     this.countryFinderForm.valueChanges.subscribe(data => {
+      if (data && data.searchTerm) {
+        this.searchCountryByName(data.searchTerm);
+      }
+
       if (data && data.category) {
         console.log('data', data.category);
-        data.category === '0' ? this.getAllCountries() : this.filterCountryByRegion(data.category);
+        if (data.category !== '0') {
+          this.filterCountriesByRegion(data.category);
+        }
       }
+
     });
   }
 
-  private getAllCountries() {
+  getAllCountries() {
     this.countries$ = this.countryService.getCountries();
   }
 
-  filterCountryByRegion(region: string) {
-    this.countries$ = this.countryService.getCountryByRegion(region);
+  searchCountryByName(name: string) {
+    this.countries$ = this.countryService.getCountryByName(name);
   }
+
+  filterCountriesByRegion(region: string) {
+    this.countries$ = this.countryService.getCountriesByRegion(region);
+    // if (region !== '0') {
+    //   this.countries$ = this.countryService.getCountriesByRegion(region);
+    // }
+    // else {
+    //   this.getAllCountries();
+    // }
+  }
+
 
 }

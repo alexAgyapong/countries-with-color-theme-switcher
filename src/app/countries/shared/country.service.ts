@@ -49,7 +49,12 @@ export class CountryService {
         }), tap(data => console.log('border country names details', data)));
   }
 
-  getCountryByRegion(region: string): Observable<Country[]> {
+  getCountryByName(name: string): Observable<Country[]> {
+    const url = `${this.baseUrl}/name/${name}`;
+    return this.http.get<any>(url);
+  }
+
+  getCountriesByRegion(region: string): Observable<Country[]> {
     const url = `${this.baseUrl}/region/${region}`;
     return this.http.get<any>(url);
   }
