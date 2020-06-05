@@ -9,11 +9,27 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
-.wrapper{
- background-color: $very-light-gray;
+.wrapper {
+  background-color: $very-light-gray;
+}
+.search-input {
+  position: relative;
 }
 
-a, a:hover {
+#search-icon {
+  top: 3%;
+  left: 0;
+  position: absolute;
+  padding: 0.5rem 1rem;
+  opacity: 0.5;
+}
+
+#searchTerm {
+  padding: .8rem 3rem;
+}
+
+a,
+a:hover {
   text-decoration: none;
   color: inherit;
 }
@@ -24,22 +40,20 @@ a, a:hover {
     // max-width: 200px;
     // width: 100%;
     // border-radius: .5rem ;
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
   }
 }
 
-dl
-{
+dl {
   display: flex;
   margin-bottom: 0;
 
-  dt{
-    margin-right: .5rem;
+  dt {
+    margin-right: 0.5rem;
   }
 
   dt::after {
     content: ": ";
   }
 }
-
